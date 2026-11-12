@@ -1,0 +1,17 @@
+{
+  "name": "YepBlocked",
+  "id": "yepblocked",
+  "version": "1.0.0",
+  "description": "Mod for detailed mob/animal spawn configuration",
+  "author": "BEQUIETBRO",
+  "commands": [
+    {
+      "name": "hello",
+      "action": "say",
+      "text": [
+        "Hello from {name}! You're at {bx}, {by}, {bz} in the {dimension}."
+      ]
+    }
+  ]
+}
+

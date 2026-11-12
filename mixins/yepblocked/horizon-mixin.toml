@@ -1,0 +1,34 @@
+[mod]
+id = "yepblocked"
+version = "1.0.0"
+priority = 100
+
+# Made with Horizon Translator's mod kit. It hooks only Horizon's native hook points (hooks API 1 in
+# compatibility.json), so the launcher builds it on any Horizon that has them. The .hnmod names the commit it was
+# made on.
+
+[[module]]
+id = "runtime"
+file = "crates/horizon-client/src/game.rs"
+name = "kit_yepblocked"
+source = "runtime.rs"
+
+[[injection]]
+id = "list"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_mods"
+helper = "list.rs"
+bindings = [
+  { name = "mods", ty = "&mut Vec<crate::game::native_hooks::NativeMod>", value = "&mut *mods" },
+]
+
+[[injection]]
+id = "command"
+kind = "HEAD"
+target = "horizon_client::game::native_hooks::Game<'_>::native_command"
+helper = "command.rs"
+bindings = [
+  { name = "game", ty = "&mut crate::game::Game<'_>", value = "&mut *self" },
+  { name = "command", ty = "&str", value = "command" },
+  { name = "ran", ty = "&mut bool", value = "&mut *ran" },
+]

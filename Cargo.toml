@@ -1,0 +1,13 @@
+[package]
+name = "horizon-mod-yepblocked"
+version = "1.0.0"
+edition = "2024"
+publish = false
+description = "YepBlocked: Mod for detailed mob/animal spawn configuration"
+
+# The mod's logic and its tests (`cargo test`): the same file the bundle adds to the game.
+[lib]
+path = "mixins/yepblocked/runtime.rs"
+
+# Not part of any other workspace.
+[workspace]
